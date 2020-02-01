@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for definicao in definicoes %}
+        {{definicao.domain_name}}
+        {{definicao.term}}
+        {{definicao.definition}}
+        {{definicao.upvotes}}
+        {{definicao.downvotes}}
+    {% endfor %}
+{% endblock %}
