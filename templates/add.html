@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+   <h3>Add</h3>
+
+    <div class="row">
+        <form action="{{url_for('insert')}}" method="POST" class="col s12">
+            <div class="row">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">poll</i>
+                        <select id="domain_name" name="domain_name">
+                            <option value="" disabled selected>Choose your option</option>
+                            {% for domain in domains %}
+                            <option value="{{domain.domain_name}}">{{domain.domain_name}}</option>
+                            {% endfor %}
+                        </select>
+                        <label>Materialize Select</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">assignment</i>
+                        <input id="term" name="term" type="text" class="validate">
+                        <label for="term">Term</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">subject</i>
+                        <textarea id="definition" name="definition" class="materialize-textarea"></textarea>
+                        <label for="definition">Definition</label>
+                    </div>
+                </div>
+                <div class="row">
+                     <div class="switch">
+                        <label>
+                        <input id="upvote" name="upvote" type="checkbox">
+                        <span class="lever"></span>
+                        On
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                        <i class="material-icons right">playlist_add</i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
