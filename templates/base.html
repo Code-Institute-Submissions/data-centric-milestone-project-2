@@ -17,9 +17,30 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Outside</h1>
-    {% block content %}
-    {% endblock %}
+    <header>
+         <nav>
+            <div class="nav-wrapper">
+                <a href="{{url_for('test')}}" class="brand-logo">Logo</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="{{url_for('test')}}">Sass</a></li>
+                    <li><a href="{{url_for('add')}}">Components</a></li>
+                    <li><a href="{{url_for('domains')}}">JavaScript</a></li>
+                </ul>
+                <ul class="sidenav" id="mobile-demo">
+                    <li><a href="{{url_for('test')}}">Sass</a></li>
+                    <li><a href="{{url_for('add')}}">Components</a></li>
+                    <li><a href="{{url_for('domains')}}">JavaScript</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+    </header>
+    <div class="container">
+        <h1>Outside</h1>
+        {% block content %}
+        {% endblock %}
+    </div>
 
     <!--JQuery connection script-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -32,6 +53,8 @@
         $(document).ready(function(){
             $('.collapsible').collapsible();
             $('select').formSelect();
+            $('.dropdown-trigger').dropdown();
+            $('.sidenav').sidenav();
         });
     </script>
 </body>
