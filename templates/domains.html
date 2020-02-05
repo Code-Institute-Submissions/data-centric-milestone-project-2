@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="row">
+        <h3>domains</h3>
+        <ul class="collapsible">
+            {% for domain in domains %}
+                <li>
+                    <div class="collapsible-header">
+                        <a href="{{url_for('edit_domain', domainid=domain._id)}}" class="waves-effect waves-light btn blue">edit</a>
+                        <a href="{{url_for('delete_domain', domainid=domain._id)}}" class="waves-effect waves-light btn red">delete</a>
+                        <div class="col s9">
+                            <strong>{{domain.domain_name}}</strong>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="row">
+        <a href="{{url_for('add_domain')}}" class="waves-effect waves-light btn"><i class="material-icons right">playlist_add</i>button</a>
+    </div>    
+{% endblock %}

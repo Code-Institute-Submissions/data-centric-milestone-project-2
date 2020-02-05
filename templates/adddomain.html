@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+   <h3>Add Domain</h3>
+
+    <div class="row">
+        <form action="{{url_for('insert_domain')}}" method="POST" class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">assignment</i>
+                        <input id="domain_name" name="domain_name" type="text" class="validate">
+                        <label for="icon_prefix">Domain Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                        <i class="material-icons right">playlist_add</i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

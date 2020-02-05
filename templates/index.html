@@ -1,13 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
     <ul class="collapsible">
-        {% for definicao in definicoes %}
+        {% for definicao in definitions %}
             <li>
-                <div class="collapsible-header"><i class="material-icons">expand_more</i><strong>{{definicao.domain_name}}</strong> - {{definicao.term}}</div>
+                <div class="collapsible-header">
+                    <div class="col s3">
+                        <i class="material-icons">expand_more</i>
+                        <a href="{{url_for('edit', definitionid=definicao._id)}}" class="waves-effect waves-light btn blue">edit</a>
+                        <a href="{{url_for('delete', definitionid=definicao._id)}}" class="waves-effect waves-light btn red">delete</a>
+                    </div>
+                    <div class="col s9">
+                        <strong>{{definicao.term}}</strong> - {{definicao.definition}}
+                    </div>
+                </div>                
                 <div class="collapsible-body"><span>
                     {{definicao.definition}}
-                    {{definicao.upvotes}}
-                    {{definicao.downvotes}}</span>
+                    </span>
                 </div>
             </li>
         {% endfor %}
