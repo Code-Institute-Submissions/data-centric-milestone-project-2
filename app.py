@@ -15,6 +15,10 @@ mongo = PyMongo(app)
 def test():
     return render_template("index.html", definitions=mongo.db.Definitions.find())
 
+@app.route('/aboutus')
+def aboutus():
+    return render_template("aboutus.html")
+
 @app.route('/add')
 def add():
     return render_template("add.html", domains=mongo.db.Domains.find())
