@@ -25,40 +25,47 @@
     <header>
          <nav class="indigo darken-4">
             <div class="nav-wrapper col s10 offset-s1">
-                <a href="{{url_for('test')}}" class="brand-logo">Community Dictionary</a>
+                <a href="{{url_for('home')}}" class="brand-logo">Community Dictionary</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="{{url_for('aboutus')}}">About Us</a></li>
                     <li><a href="{{url_for('domains')}}">Domains</a></li>
-                    <li><a href="{{url_for('test')}}">Terms</a></li>
+                    <li><a href="{{url_for('home')}}">Terms</a></li>
                 </ul>
                 <ul class="sidenav" id="mobile-demo">
-                    <li><a href="{{url_for('test')}}">About Us</a></li>
-                    <li><a href="{{url_for('domains')}}">Domains</a></li>
-                    <li><a href="{{url_for('test')}}">Terms</a></li>
+                    <li><a class="indigo-text text-darken-4" href="{{url_for('aboutus')}}">About Us</a></li>
+                    <li><a class="indigo-text text-darken-4" href="{{url_for('domains')}}">Domains</a></li>
+                    <li><a class="indigo-text text-darken-4" href="{{url_for('home')}}">Terms</a></li>
                 </ul>
             </div>
         </nav>
     </header>
-    <div class="container-fluid row">
-        <div class="col s10 offset-s1 indigo-text text-darken-4 center-align">
-            <h3>Try Our Community Dictionary!</h3>
-            <h4>Find and Share the defintions of "street expressions"!</h4>
+    <main>
+        <div class="container-fluid row">
+            <div class="col s10 offset-s1 indigo-text text-darken-4 center-align">
+                <h3>Try Our Community Dictionary!</h3>
+                <h4>Find and Share the defintions of "street expressions"!</h4>
+            </div>
         </div>
-    </div>
-    <div class="container-fluid row">
-        <div class="col s10 offset-s1 indigo-text text-darken-4">
-            {% block content %}
-            {% endblock %}
+        <div class="container-fluid row">
+            <div class="col s10 offset-s1 indigo-text text-darken-4">
+                {% block content %}
+                {% endblock %}
+            </div>
         </div>
-    </div>
+    </main>
+    <footer class="page-footer indigo darken-4 row">
+            <h6 class="col s4 center-align">© 2019 Copyright</h6>
+            <h6 class="col s4 center-align">Made by: Ricardo Santos</h6>
+            <h6 class="col s4 center-align">Based On: Materialize</h6>
+    </footer>
 </div>
     <!--JQuery connection script-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
     <!--Materialize connection script-->
     <!-- Compiled and minified JavaScript -->
-   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
 
     <script>
         $(document).ready(function(){

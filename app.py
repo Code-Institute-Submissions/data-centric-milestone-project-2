@@ -11,9 +11,9 @@ app.config["MONGO_URI"]= "mongodb+srv://root:r00tUser@myfirstcluster-ur23i.mongo
 mongo = PyMongo(app)
 
 @app.route('/')
-@app.route('/testroute')
-def test():
-    return render_template("index.html", definitions=mongo.db.Definitions.find())
+@app.route('/home')
+def home():
+    return render_template("index.html", definitions=mongo.db.Definitions.find().sort([("domain_name",1),("term",1)]))
 
 @app.route('/aboutus')
 def aboutus():
@@ -21,13 +21,13 @@ def aboutus():
 
 @app.route('/add')
 def add():
-    return render_template("add.html", domains=mongo.db.Domains.find())
+    return render_template("add.html", domains=mongo.db.Domains.find().sort("domain_name",1))
 
 @app.route('/insert',methods=["POST"])
 def insert():
     definitions= mongo.db.Definitions
     definitions.insert_one(request.form.to_dict())
-    return redirect(url_for('test'))
+    return redirect(url_for('home'))
 
 @app.route('/update/<definitionid>', methods=['POST'])
 def update(definitionid):
@@ -38,7 +38,7 @@ def update(definitionid):
         'term': request.form.get('term'),
         'definition': request.form.get('definition')
     })
-    return redirect(url_for('test'))
+    return redirect(url_for('home'))
 
 @app.route('/edit/<definitionid>')
 def edit(definitionid):
@@ -49,7 +49,7 @@ def edit(definitionid):
 @app.route('/delete/<definitionid>')
 def delete(definitionid):
     mongo.db.Definitions.remove({'_id':ObjectId(definitionid)})
-    return redirect(url_for('test'))
+    return redirect(url_for('home'))
 
 @app.route('/domains')
 def domains():

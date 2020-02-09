@@ -1,23 +1,33 @@
 {% extends 'base.html' %}
 {% block content %}
+    <div class="indigo-text text-darken-4">
+            <h5>Current Terms</h5>
+    </div>
     <ul class="collapsible">
         {% for definicao in definitions %}
             <li>
                 <div class="collapsible-header">
-                    <div class="col s3">
+                    <div class="col s1">
                         <i class="material-icons">expand_more</i>
-                        <a href="{{url_for('edit', definitionid=definicao._id)}}" class="waves-effect waves-light btn indigo darken-4">edit</a>
-                        <a href="{{url_for('delete', definitionid=definicao._id)}}" class="waves-effect waves-light btn indigo darken-4">delete</a>
                     </div>
-                    <div class="col s9">
-                        <strong>{{definicao.term}}</strong> - {{definicao.definition}}
+                    <div class="col s10 offset-s1">
+                        <strong>Domain:</strong> {{definicao.domain_name}}
+                        <br>
+                        <strong>Term:</strong> {{definicao.term}}                        
                     </div>
                 </div>                
-                <div class="collapsible-body"><span>
-                    {{definicao.definition}}
+                <div class="collapsible-body row"><span>
+                    <div class="col s2">
+                        <a href="{{url_for('edit', definitionid=definicao._id)}}" class="waves-effect waves-light btn btn-small indigo darken-4">edit</a>
+                        <a href="{{url_for('delete', definitionid=definicao._id)}}" class="waves-effect waves-light btn btn-small indigo darken-4">delete</a>
+                    </div>
+                    <span><strong>Definition:</strong><br>{{definicao.definition}}</span>
                     </span>
                 </div>
             </li>
         {% endfor %}
     </ul>
+    <div class="row">
+        <a href="{{url_for('add')}}" class="waves-effect waves-light btn btn-small indigo darken-4"><i class="material-icons right">playlist_add</i>Add Term</a>
+    </div>
 {% endblock %}
