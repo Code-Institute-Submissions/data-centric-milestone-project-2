@@ -25,7 +25,7 @@ As a user I want to be able to:
 - Be able to edit available domains;
 - Be able to edit domains;
 
-Mock-Up of the website scheme: 
+Mock-Up of the website scheme: https://github.com/ricardorams/data-centric-milestone-project/blob/master/wireframes/wireframe.PNG
 
 FEATURES:
 
