@@ -87,6 +87,11 @@ All the variables mentioned above are used in the code but no defined. They are 
 To run the code locally, you should run the "app.py" file. In order for it to run successful, you will need to define all the variables above. 
 All of them should be defined in the "app.py" file.
 
+On the Heroku side, I used the Github/Heroku option available on Heroku's website to do the deployment, by doing this I assure that everytime I commit to github, heroku is updated.
+This allows me to have always the most up to date version deployed and available to the user.
+
+To the development itself, I used Gitpod, which allowed me to work with all the technologies mentioned above, without major bugs.
+
 CREDITS
 
 - Materialize: All the front end is based on Materialize as CSS template. I found their template very complete, intuitive, and easely accessible on the web.
