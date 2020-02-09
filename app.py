@@ -3,13 +3,17 @@ from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
+#create flask app
 app = Flask(__name__)
 
-app.config["MONGO_DBNAME"]= "DataCentricDB"
-app.config["MONGO_URI"]= "mongodb+srv://root:r00tUser@myfirstcluster-ur23i.mongodb.net/DataCentricDB?retryWrites=true&w=majority"
+#mongo connection
+app.config["MONGO_DBNAME"]= os.getenv('MONGO_DBNAME')
+app.config["MONGO_URI"]= os.getenv('MONGO_URI')
 
+#creates pymongo
 mongo = PyMongo(app)
 
+#home route
 @app.route('/')
 @app.route('/home')
 def home():
@@ -53,7 +57,7 @@ def delete(definitionid):
 
 @app.route('/domains')
 def domains():
-    return render_template('domains.html',domains=mongo.db.Domains.find())
+    return render_template('domains.html',domains=mongo.db.Domains.find().sort("domain_name",1))
 
 @app.route('/edit_domain/<domainid>')
 def edit_domain(domainid):
